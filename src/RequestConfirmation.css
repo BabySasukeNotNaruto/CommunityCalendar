@@ -1,0 +1,83 @@
+.request-confirmation {
+    font-family: Arial, sans-serif;
+    max-width: 600px; 
+    margin: 0 auto;
+    padding: 30px; 
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .request-confirmation h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px; 
+  }
+  
+  .request-confirmation form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .request-confirmation label {
+    margin-bottom: 15px; 
+    font-size: 16px; 
+  }
+  
+  .request-confirmation input[type="text"],
+  .request-confirmation input[type="email"],
+  .request-confirmation input[type="tel"],
+  .request-confirmation input[type="password"] {
+    padding: 10px;
+    font-size: 16px; 
+    margin-bottom: 10px; 
+  }
+  
+  .request-confirmation .terms-service {
+    margin-top: 20px;
+  }
+  
+  .request-confirmation .terms-toggle {
+    background: none;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  .request-confirmation .terms-content {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+  
+  .request-confirmation .terms-content p {
+    margin: 0;
+  }
+  
+  .request-confirmation input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .request-confirmation .submit-btn {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .request-confirmation .submit-btn:hover {
+    background-color: #142c15; 
+  }
+
+  

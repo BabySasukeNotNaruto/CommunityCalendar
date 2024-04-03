@@ -1,0 +1,70 @@
+.content {
+    display: flex;
+    flex-direction: row; /* Change to row */
+    height: 100%; /* Set height to 100% to fill the container vertically */
+}
+
+h1, h2, h3 {
+    margin: 0;
+    flex: 1; /* Each element takes up equal space */
+    text-align: center; /* Center the text */
+    font-size: 28px;
+}
+
+p {
+    font-size: 25px;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+}
+
+h2 {
+    color: rgb(0, 0, 0);
+}
+
+h3 {
+    color: rgb(0, 0, 0);
+}
+
+img[src*="image1"] {
+    max-width: 110%;
+    height: auto;
+    margin-bottom: 10px;
+    max-height: 300px; /* Set a maximum height for the image */
+    border: 1px solid #ccc; /* Add a border around the image */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    box-shadow: 0 
+}
+
+img[src*="image2"] {
+    max-width: 110%;
+    height: auto;
+    margin-bottom: 10px;
+    max-height: 300px; /* Set a maximum height for the image */
+    border: 1px solid #ccc; /* Add a border around the image */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    box-shadow: 0 
+}
+
+img[src*="image3"] {
+    max-width: 110%;
+    height: auto;
+    margin-bottom: 10px;
+    max-height: 300px; /* Set a maximum height for the image */
+    border: 1px solid #ccc; /* Add a border around the image */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    box-shadow: 0 
+}
+
+img[src*="image4"] {
+    max-width: 110%;
+    height: auto;
+    margin-bottom: 10px;
+    max-height: 300px; /* Set a maximum height for the image */
+    border: 1px solid #ccc; /* Add a border around the image */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    box-shadow: 0 
+}
+
+
