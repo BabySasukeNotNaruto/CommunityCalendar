@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import './RequestConfirmation.css';
 
 const RequestConfirmation = () => {
+  // State variable to toggle the display of terms of service
   const [showTerms, setShowTerms] = useState(false);
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     alert('Form submitted. You will be sent an email about the confirmation soon. Thank you!');
   };
 
+  // RequestConfirmation component JSX
   return (
     <div className="request-confirmation">
       <h2>Request Confirmation</h2>
@@ -43,7 +46,7 @@ const RequestConfirmation = () => {
             <div className="terms-content">
               {/* Terms of Service */}
               <p>
-                By agreeing to these terms, you are allowing us to send you emails (can be turned off) and are agreeing to not submit any malicious content and/or inappropiate content.
+                By agreeing to these terms, you are allowing us to send you emails (can be turned off) and are agreeing to not submit any malicious content and/or inappropriate content.
               </p>
               <p>
                 Please read these terms carefully...

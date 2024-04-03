@@ -3,8 +3,8 @@
     max-width: 600px; 
     margin: 0 auto;
     padding: 30px; 
-    background-color: #f9f9f9;
-    border-radius: 5px;
+    background-color: #6d5942;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
@@ -14,6 +14,11 @@
     font-size: 24px; 
   }
   
+  .request-confirmation form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
   .request-confirmation form {
     display: flex;
     flex-direction: column;
@@ -28,9 +33,13 @@
   .request-confirmation input[type="email"],
   .request-confirmation input[type="tel"],
   .request-confirmation input[type="password"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 10px;
     font-size: 16px; 
-    margin-bottom: 10px; 
+    margin-bottom: 10px;  
+    background-color: bisque;
   }
   
   .request-confirmation .terms-service {
@@ -49,7 +58,7 @@
   .request-confirmation .terms-content {
     max-height: 200px;
     overflow-y: auto;
-    background-color: #f0f0f0;
+    background-color: bisque;
     padding: 10px;
     border: 1px solid #ddd;
     margin-bottom: 10px;

@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Calendar.css';
 
-const Calendar = () => {
+const Calendar = ({ currentUser }) => {
+    // State variables
     const [date, setDate] = useState(new Date());
-    const [events, setEvents] = useState({
-        '2024-04-10': [
-            { eventText: 'Event 1', communityCode: '999' },
-            { eventText: 'Event 2', communityCode: '402' }
-        ],
-        '2024-04-15': [
-            { eventText: 'Event 3', communityCode: '007' }
-        ],
-        '2024-04-20': [
-            { eventText: 'Hard-coded Event 1', communityCode: '999' },
-            { eventText: 'Hard-coded Event 2', communityCode: '402' },
-            { eventText: 'Hard-coded Event 3', communityCode: '007' }
-        ]
-    });
+    const [events, setEvents] = useState(JSON.parse(localStorage.getItem('events')) || {});
     const [errorMessage, setErrorMessage] = useState("");
     const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+    // Update local storage when events change
+    useEffect(() => {
+        localStorage.setItem('events', JSON.stringify(events));
+    }, [events]);
+
+    // Handlers for navigating to previous and next days
     const handlePrevDay = () => {
         setDate(new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1));
     };
@@ -28,10 +22,12 @@ const Calendar = () => {
         setDate(new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1));
     };
 
+    // Handler for clicking on a day to select it
     const handleDayClick = (day) => {
         setDate(new Date(date.getFullYear(), date.getMonth(), day));
     };
 
+    // Handler for submitting an event
     const handleEventSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -46,51 +42,73 @@ const Calendar = () => {
         const eventDate = new Date(date.getFullYear(), date.getMonth(), date.getDate()).toISOString();
         const updatedEvents = {
             ...events,
-            [eventDate]: [...(events[eventDate] || []), { eventText, communityCode }]
+            [eventDate]: [...(events[eventDate] || []), { eventText, communityCode, username: currentUser }]
         };
         setEvents(updatedEvents);
         form.reset();
         setErrorMessage("");
     };
 
-const renderCalendar = () => {
-    const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-    const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-    const days = [];
-    let dayIndex = 0;
+    // Handler for removing an event
+    const handleRemoveEvent = (eventDate, index) => {
+        const event = events[eventDate][index];
+        const communityCodeInput = prompt("Please enter the community code to remove this event:");
 
-    for (let i = 0; i < 6; i++) {
-        const week = [];
-
-        for (let j = 0; j < 7; j++) {
-            if (i === 0 && j < firstDayOfMonth) {
-                week.push(<div key={`empty-${j}`} className="day empty"></div>);
-            } else if (dayIndex < daysInMonth) {
-                const day = dayIndex + 1;
-                const eventDate = new Date(date.getFullYear(), date.getMonth(), day).toISOString();
-                const dayEvents = events[eventDate] || [];
-
-                week.push(
-                    <div key={day} className={`day ${date.getDate() === day ? 'selected' : ''}`} onClick={() => handleDayClick(day)}>
-                        <div>{day}</div>
-                        {dayEvents.map((event, index) => (
-                            <div key={index} className="event">{event.eventText}</div>
-                        ))}
-                    </div>
-                );
-                dayIndex++;
+        if (communityCodeInput === event.communityCode) {
+            if (event && event.username === currentUser) {
+                const updatedEvents = { ...events };
+                updatedEvents[eventDate] = updatedEvents[eventDate].filter((_, i) => i !== index);
+                setEvents(updatedEvents);
             } else {
-                week.push(<div key={`empty-${j}`} className="day empty"></div>);
+                alert("You did not create this event, so you can't remove it");
             }
+        } else {
+            alert("Invalid community code");
+        }
+    };
+
+    // Function to render the calendar grid
+    const renderCalendar = () => {
+        const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+        const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+        const days = [];
+        let dayIndex = 0;
+
+        for (let i = 0; i < 6; i++) {
+            const week = [];
+
+            for (let j = 0; j < 7; j++) {
+                if (i === 0 && j < firstDayOfMonth) {
+                    week.push(<div key={`empty-${j}`} className="day empty"></div>);
+                } else if (dayIndex < daysInMonth) {
+                    const day = dayIndex + 1;
+                    const eventDate = new Date(date.getFullYear(), date.getMonth(), day).toISOString();
+                    const dayEvents = events[eventDate] || [];
+
+                    week.push(
+                        <div key={day} className={`day ${date.getDate() === day ? 'selected' : ''}`} onClick={() => handleDayClick(day)}>
+                            <div>{day}</div>
+                            {dayEvents.map((event, index) => (
+                                <div key={index} className="event">
+                                    {event.eventText}
+                                    <button onClick={() => handleRemoveEvent(eventDate, index)}>Remove</button>
+                                </div>
+                            ))}
+                        </div>
+                    );
+                    dayIndex++;
+                } else {
+                    week.push(<div key={`empty-${j}`} className="day empty"></div>);
+                }
+            }
+
+            days.push(<div key={`week-${i}`} className="week">{week}</div>);
         }
 
-        days.push(<div key={`week-${i}`} className="week">{week}</div>);
-    }
+        return days;
+    };
 
-    return days;
-};
-   
-
+    // Calendar component JSX
     return (
         <div className="calendar">
             <div className="header">

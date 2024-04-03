@@ -1,6 +1,6 @@
 .calendar {
     width: 90%;
-    max-width: 800px;
+    max-width: 1500px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
     background-color: #6d5942;
@@ -41,17 +41,20 @@
     padding: 20px;
 }
 
+.week {
+    display: flex;
+}
+
 .day {
-    display: inline-block;
-    width: calc(100% / 7);
-    padding: 30px 0;
+    flex: 1;
+    border: 1px solid #000000;
+    padding: 5px;
     text-align: center;
-    cursor: pointer;
-    font-size: 1em;
 }
 
 .day.empty {
     background-color: #6d5942;
+    height: 80px;
 }
 
 .day.selected {
@@ -107,4 +110,37 @@ input[type="text"] {
     margin-top: 10px;
 }
 
+.event button {
+    background-color: #bd9c70;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 5px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 10px;
+    transition: background-color 0.3s;
+}
 
+.event button:hover {
+    background-color: #c2a273;
+}
+
+.event-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-form label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.event-form input {
+    width: 200px; /* Adjust the width as needed */
+    padding: 5px;
+    margin-top: 5px;
+}

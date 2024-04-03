@@ -6,6 +6,7 @@ import Communities from './Communities';
 import RequestConfirmation from './RequestConfirmation';
 
 function App() {
+  // State variables for managing user authentication and account creation
   const [showSignIn, setShowSignIn] = useState(false);
   const [showCreateAccount, setShowCreateAccount] = useState(false);
   const [username, setUsername] = useState('');
@@ -15,15 +16,18 @@ function App() {
   const [accounts, setAccounts] = useState([
     { username: 'Tyten1', password: 'Tyten1' },
   ]);
-  
+
+  // Function to toggle the sign-in form visibility
   const toggleSignIn = () => {
     setShowSignIn(!showSignIn);
   };
 
+  // Function to toggle the create account form visibility
   const toggleCreateAccount = () => {
     setShowCreateAccount(!showCreateAccount);
   };
 
+  // Function to handle user sign-in
   const handleSignIn = () => {
     const isValidUser = accounts.some(
       (user) => user.username === username && user.password === password
@@ -37,6 +41,7 @@ function App() {
     }
   };
 
+  // Function to handle user account creation
   const handleCreateAccount = () => {
     if (username && password) {
       const existingUser = accounts.find((user) => user.username === username);
@@ -54,11 +59,13 @@ function App() {
     }
   };
 
+  // Function to handle user sign-out
   const signOut = () => {
     setIsLoggedIn(false);
     setCurrentUser('');
   };
 
+  // App component JSX
   return (
     <div className="App">
       <div className="top-bar">
@@ -130,7 +137,7 @@ function App() {
         <section id="request-confirmation">
           <h4>Request Confirmation</h4>
           <p>You can request to be a confirmed community event leader with the form down below.</p>
-            <p>Please fill out and submit and you will review your submission.</p>
+          <p>Please fill out and submit and you will review your submission.</p>
           <RequestConfirmation />
           <h4>Please sign in to your Community Calendar account to view the current calendar.</h4>
           <h4>If you do not have an account, you can create one at the top of the right page.</h4>
@@ -138,10 +145,11 @@ function App() {
         {isLoggedIn && (
           <section id="calendar">
             <h4>The Community Calendar</h4>
-            <p>To navigate through this calendar, use the "Next" and "Previous" buttons.</p>
-            <p>The selected day is displayed at the top of the calendar.</p>
-            <p>Please include the event name, time, and location.</p>
-            <Calendar />
+            <p2>- To navigate through this calendar, use the "Next" and "Previous" buttons or click on a day with your cursor.</p2>
+            <p2>- Please include the event name, time, and location.</p2>
+            <p2>- In addition to signing in, you must input your community code to post an event. </p2>
+            <p2>- If you want to remove a current event on the calender, just click the remove button, and confirm your community code to remove it from the calendar.</p2>
+            <Calendar currentUser={currentUser} />
           </section>
         )}
       </main>

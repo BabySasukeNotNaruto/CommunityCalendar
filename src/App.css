@@ -201,5 +201,18 @@ h4 {
   background-color: #c2a273;
 }
 
+p2 {
+  font-weight: 600;
+  padding-left: 500px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 950px;
+  font-size: 25px;
+  padding-bottom: 25px;
+}
+
 
 
