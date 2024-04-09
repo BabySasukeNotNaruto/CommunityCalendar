@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from './Calendar';
 import calendarLogo from './calendarLogo.png';
 import './App.css';
@@ -13,9 +13,18 @@ function App() {
   const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState('');
-  const [accounts, setAccounts] = useState([
-    { username: 'Tyten1', password: 'Tyten1' },
-  ]);
+  const [accounts, setAccounts] = useState(() => {
+    const storedAccounts = localStorage.getItem('accounts');
+    return storedAccounts ? JSON.parse(storedAccounts) : [{ username: 'Tyten1', password: 'Tyten1' }];
+  });
+
+  useEffect(() => {
+    const storedCurrentUser = localStorage.getItem('currentUser');
+    if (storedCurrentUser) {
+      setCurrentUser(storedCurrentUser);
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   // Function to toggle the sign-in form visibility
   const toggleSignIn = () => {
@@ -36,6 +45,7 @@ function App() {
     if (isValidUser) {
       setIsLoggedIn(true);
       setCurrentUser(username);
+      localStorage.setItem('currentUser', username);
     } else {
       alert('Invalid username or password');
     }
@@ -48,7 +58,9 @@ function App() {
       if (existingUser) {
         alert('Username already exists');
       } else {
-        setAccounts([...accounts, { username, password }]);
+        const newAccounts = [...accounts, { username, password }];
+        setAccounts(newAccounts);
+        localStorage.setItem('accounts', JSON.stringify(newAccounts));
         setUsername('');
         setPassword('');
         setShowCreateAccount(false);
@@ -63,6 +75,7 @@ function App() {
   const signOut = () => {
     setIsLoggedIn(false);
     setCurrentUser('');
+    localStorage.removeItem('currentUser');
   };
 
   // App component JSX
