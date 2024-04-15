@@ -1,11 +1,12 @@
 .App {
   text-align: center;
+  padding-top: 100px; /* Adjust this value based on the height of the top bar */
+  margin-top: 60px; /* Add a top margin to prevent overlap with the nav bar */
 }
 
 h5 {
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 65px;
-
 }
 
 h4 {
@@ -28,8 +29,8 @@ h4 {
 .logo {
   display: block;
   margin: 0 auto;
-  width: 300px; 
-  height: auto; 
+  width: 300px;
+  height: auto;
 }
 
 .App-header {
@@ -47,23 +48,30 @@ h4 {
   color: #000000;
 }
 
-@keyframes App-logo-spin {}
+@keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
 
 .top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 50px;
-  background-color: #ffffff;
 }
 
-.sign-in-box {
+.sign-in-box,
+.create-account-box {
   position: absolute;
   right: 50px;
   top: 60px;
@@ -74,10 +82,13 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  z-index: 99999; /* Ensure the boxes appear above all other elements */
 }
 
 .sign-in-box input,
-.sign-in-box button {
+.sign-in-box button,
+.create-account-box input,
+.create-account-box button {
   margin-top: 10px;
   padding: 10px;
   width: 200px;
@@ -85,13 +96,15 @@ h4 {
   border: 1px solid #ccc;
 }
 
-.sign-in-box button {
-  background-color: #4CAF50; 
+.sign-in-box button,
+.create-account-box button {
+  background-color: #4CAF50;
   color: white;
   border: none;
 }
 
-.sign-in-button {
+.sign-in-button,
+.create-account-button {
   padding: 10px 20px;
   background-color: #4CAF50;
   color: white;
@@ -100,11 +113,24 @@ h4 {
   cursor: pointer;
 }
 
+.create-account-button {
+  background-color: #bd9c70;
+}
+
+.create-account-button:hover {
+  background-color: #c2a273;
+}
+
 .logo {
-  width: auto; 
+  width: auto;
 }
 
 .navbar {
+  position: fixed;
+  top: 111px; /* Adjust this value based on the height of the top bar */
+  left: 0;
+  right: 0;
+  z-index: 999;
   display: flex;
   justify-content: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -114,7 +140,8 @@ h4 {
 
 .navbar a {
   color: white;
-  padding: 0 2rem;
+  padding: 0 3rem;
+  padding-top: 1rem;
   text-decoration: none;
   font-size: 1.2rem;
 }
@@ -137,6 +164,7 @@ h4 {
   align-items: center;
 }
 
+
 .signed-in-box span {
   margin-right: 10px;
 }
@@ -155,52 +183,6 @@ h4 {
   background-color: #645f5f;
 }
 
-.create-account-button {
-  padding: 10px 20px;
-  background-color: #bd9c70;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.create-account-button:hover {
-  background-color: #c2a273;
-}
-
-.create-account-box {
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.create-account-box input,
-.create-account-box button {
-  margin-top: 10px;
-  padding: 10px;
-  width: 200px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.create-account-box button {
-  background-color: #bd9c70; 
-  color: white;
-  border: none;
-}
-
-.create-account-box button:hover {
-  background-color: #c2a273;
-}
-
 p2 {
   font-weight: 600;
   padding-left: 500px;
@@ -214,5 +196,48 @@ p2 {
   padding-bottom: 25px;
 }
 
+/* Responsive styles */
+@media (max-width: 768px) {
+  h5 {
+    font-size: 30px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  .logo {
+    width: 200px;
+    height: auto;
+  }
+
+  .top-bar {
+    padding: 10px 20px;
+  }
+
+  .sign-in-box,
+  .create-account-box {
+    flex-direction: column;
+    padding: 5px 20px;
+    align-items: center;
+    right: 10px; /* Adjust position for smaller screens */
+  }
+
+  .sign-in-box input,
+  .sign-in-box button,
+  .create-account-box input,
+  .create-account-box button {
+    width: 100%; /* Full width */
+  }
 
 
+  .navbar a {
+    padding: 10px;
+  }
+
+  p2 {
+    padding-left: 0;
+    width: auto;
+    font-size: 16px;
+  }
+}
