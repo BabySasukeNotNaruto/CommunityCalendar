@@ -141,6 +141,7 @@ function App() {
       </nav>
       <header className="App-header">
         <h5>Welcome to the Community Calendar</h5>
+        <p>Please scroll down and explore some communities and check out the community calendar!</p>
       </header>
       <main>
         <section id="communities">
