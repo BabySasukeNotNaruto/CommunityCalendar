@@ -91,7 +91,7 @@ const Calendar = ({ currentUser }) => {
                             {dayEvents.map((event, index) => (
                                 <div key={index} className="event">
                                     {event.eventText}
-                                    <button onClick={() => handleRemoveEvent(eventDate, index)}>Remove</button>
+                                    {event.username === currentUser && <button onClick={() => handleRemoveEvent(eventDate, index)}>Remove</button>}
                                 </div>
                             ))}
                         </div>
