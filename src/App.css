@@ -127,7 +127,7 @@ h4 {
 
 .navbar {
   position: fixed;
-  top: 111px; /* Adjust this value based on the height of the top bar */
+  top: 100px; /* Adjust this value based on the height of the top bar */
   left: 0;
   right: 0;
   z-index: 999;
@@ -141,7 +141,7 @@ h4 {
 .navbar a {
   color: white;
   padding: 0 3rem;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
   text-decoration: none;
   font-size: 1.2rem;
 }
@@ -149,6 +149,20 @@ h4 {
 .navbar a:hover {
   color: #ddd;
 }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 1); /* Change the alpha value to 1 for full opacity */
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  z-index: 9999; /* Make the modal appear in front of everything */
+  color: #000000; /* Set the text color to black */
+}
+
 
 .signed-in-box {
   position: absolute;
