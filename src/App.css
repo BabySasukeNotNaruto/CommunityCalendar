@@ -197,17 +197,9 @@ h4 {
   background-color: #645f5f;
 }
 
-.p2 {
-  font-weight: 600;
-  padding-left: 500px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 950px;
+p2 {
+  font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;
-  padding-bottom: 25px;
 }
 
 /* Responsive styles */

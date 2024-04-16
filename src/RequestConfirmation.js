@@ -1,42 +1,36 @@
 import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import './RequestConfirmation.css';
 
 const RequestConfirmation = () => {
-  // State variable to toggle the display of terms of service
-  const [showTerms, setShowTerms] = useState(false);
+  const [showTerms, setShowTerms] = useState(false); 
 
-  // Function to handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Form submitted. You will be sent an email about the confirmation soon. Thank you!');
-  };
+  const [state, handleSubmit] = useForm("mrgnonlp");
 
-  // RequestConfirmation component JSX
+  if (state.succeeded) {
+    return <p>Thanks for joining!</p>;
+  }
+
   return (
     <div className="request-confirmation">
       <h2>Request Confirmation</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Phone Number:
-          <input type="tel" name="phone" required />
-        </label>
-        <label>
-          Community Name:
-          <input type="text" name="communityName" required />
-        </label>
-        <label>
-          Community Code (Optional):
-          <input type="text" name="communityCode" />
-        </label>
-        
+        <label htmlFor="name">Name:</label>
+        <input id="name" type="text" name="name" required />
+
+        <label htmlFor="email">Email:</label>
+        <input id="email" type="email" name="email" required />
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
+
+        <label htmlFor="phone">Phone Number:</label>
+        <input id="phone" type="tel" name="phone" required />
+
+        <label htmlFor="communityName">Community Name:</label>
+        <input id="communityName" type="text" name="communityName" required />
+
+        <label htmlFor="communityCode">Community Code (Optional):</label>
+        <input id="communityCode" type="text" name="communityCode" />
+
         {/* Expandable Terms of Service Section */}
         <div className="terms-service">
           <button type="button" onClick={() => setShowTerms(!showTerms)} className="terms-toggle">
@@ -60,7 +54,9 @@ const RequestConfirmation = () => {
           </label>
         </div>
 
-        <button type="submit" className="submit-btn">Submit</button>
+        <button type="submit" disabled={state.submitting} className="submit-btn">
+          {state.submitting ? 'Submitting...' : 'Submit'}
+        </button>
       </form>
     </div>
   );

@@ -160,9 +160,7 @@ function App() {
           <section id="calendar">
             <h4>The Community Calendar</h4>
             <p2>- To navigate through this calendar, use the "Next" and "Previous" buttons or click on a day with your cursor.</p2>
-            <p2>- Please include the event name, time, and location.</p2>
-            <p2>- In addition to signing in, you must input your community code to post an event. </p2>
-            <p2>- If you want to remove a current event on the calender, just click the remove button, and confirm your community code to remove it from the calendar.</p2>
+            <p2> Please include the event name, time, and location.</p2>
             <Calendar currentUser={currentUser} />
           </section>
         )}
