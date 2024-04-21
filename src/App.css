@@ -239,6 +239,13 @@ p2 {
     right: 10px; /* Adjust position for smaller screens */
   }
 
+  .sign-in-button,
+  .create-account-button {
+    width: 100%; /* Make both buttons full width */
+    padding: 10px; /* Add padding to match the height of the buttons */
+    margin-top: 10px; /* Add some space between the buttons */
+  }
+  
   .sign-in-box input,
   .sign-in-box button,
   .create-account-box input,
