@@ -200,7 +200,7 @@ p2 {
 @media (max-width: 768px) {
   .top-bar {
     padding: 10px 20px;
-    height: 60px; /* Set a fixed height */
+    height: 50px; /* Set a fixed height */
   }
 
   .navbar {
@@ -224,7 +224,7 @@ p2 {
   .logo {
     width: 200px;
     height: auto;
-    margin-top: 40px; /* Add space for the .signed-in-box */
+    margin-top: 30px; /* Add space for the .signed-in-box */
   }
 
   .top-bar {
