@@ -89,7 +89,7 @@ function App() {
               Sign In
             </button>
             <button className="create-account-button" onClick={toggleCreateAccount}>
-              Create New Account
+              Create
             </button>
           </>
         )}
