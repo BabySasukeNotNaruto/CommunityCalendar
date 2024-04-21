@@ -29,7 +29,7 @@ h4 {
 .logo {
   display: block;
   margin: 0 auto;
-  width: 300px;
+  width: 500px;
   height: auto;
 }
 
@@ -121,10 +121,6 @@ h4 {
   background-color: #c2a273;
 }
 
-.logo {
-  width: auto;
-}
-
 .navbar {
   position: fixed;
   top: 100px; /* Adjust this value based on the height of the top bar */
@@ -163,7 +159,6 @@ h4 {
   color: #000000; /* Set the text color to black */
 }
 
-
 .signed-in-box {
   position: absolute;
   top: 10px;
@@ -177,7 +172,6 @@ h4 {
   display: flex;
   align-items: center;
 }
-
 
 .signed-in-box span {
   margin-right: 10px;
@@ -212,6 +206,13 @@ p2 {
   .navbar {
     top: 50px; /* Adjust top to match the new height of .top-bar */
   }
+
+  .signed-in-box {
+    top: 0; /* Align to the top of the viewport */
+    left: auto; /* Override the default positioning */
+    right: 10px; /* Position it from the right side */
+  }
+
   h5 {
     font-size: 30px;
   }
@@ -223,6 +224,7 @@ p2 {
   .logo {
     width: 200px;
     height: auto;
+    margin-top: 40px; /* Add space for the .signed-in-box */
   }
 
   .top-bar {
@@ -243,7 +245,6 @@ p2 {
   .create-account-box button {
     width: 100%; /* Full width */
   }
-
 
   .navbar a {
     padding: 10px;
