@@ -6,8 +6,8 @@
     background-color: #6d5942;
     border-radius: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    font-size: 1.5em;
-    padding: 30px;
+    font-size: 1em; 
+    padding: 20px; 
 }
 
 .header {
@@ -16,8 +16,8 @@
     align-items: center;
     background-color: #6d5942;
     color: #ffffff;
-    padding: 30px;
-    font-size: 2;
+    padding: 20px; 
+    font-size: 1.2em; 
     border-radius: 10px 10px 0 0;
 }
 
@@ -25,10 +25,10 @@
     background-color: #1f1e1e;
     color: #ffffff;
     border: none;
-    padding: 15px 30px;
+    padding: 10px 20px; 
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .days-of-week {
@@ -38,7 +38,7 @@
     color: #ffffff;
     font-weight: bold;
     border-radius: 5px 5px 0 0;
-    padding: 20px;
+    padding: 15px; 
 }
 
 .week {
@@ -54,7 +54,7 @@
 
 .day.empty {
     background-color: #6d5942;
-    height: 80px;
+    height: 60px; 
 }
 
 .day.selected {
@@ -67,37 +67,8 @@
     padding: 5px;
     margin-top: 15px;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 0.8em; 
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.event-form {
-    margin-top: 30px;
-    padding: 0px;
-}
-
-label {
-    display: block;
-    margin-bottom: 15px;
-    font-size: 1em;
-}
-
-input[type="text"] {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #999999;
-    font-size: 1em;
-}
-
-.button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #1f1e1e;
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
 }
 
 .button:hover {
@@ -127,20 +98,50 @@ input[type="text"] {
 }
 
 .event-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 20px;
+    padding: 0px;
 }
 
-.event-form label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.event-form label, label {
+    display: block;
     margin-bottom: 10px;
+    font-size: 0.9em; 
 }
 
-.event-form input {
-    width: 200px; /* Adjust the width as needed */
-    padding: 5px;
-    margin-top: 5px;
+input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #999999;
+    font-size: 0.9em; 
 }
+
+.button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1f1e1e;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.9em; 
+}
+
+.event button {
+    padding: 5px 5px;
+    font-size: 0.8em; 
+}
+
+/* Media Queries for further responsiveness */
+@media (max-width: 600px) {
+    .header, .nav-btn, .days-of-week, .event, .button, label, input[type="text"], .event button {
+        font-size: 0.8em; 
+    }
+
+    .nav-btn, .button {
+        padding: 8px 10px; 
+    }
+
+    .calendar, .header, .days-of-week {
+        padding: 10px;
+    }
+}
+
