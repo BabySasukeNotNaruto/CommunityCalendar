@@ -200,7 +200,7 @@ p2 {
 @media (max-width: 768px) {
   .top-bar {
     padding: 10px 20px;
-    height: 50px; /* Set a fixed height */
+    height: 60px; /* Set a fixed height */
   }
 
   .navbar {
