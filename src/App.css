@@ -162,7 +162,6 @@ h4 {
 .signed-in-box {
   position: absolute;
   top: 10px;
-  left: 10px; /* Move it to the left side to avoid overlapping the logo */
   font-size: 20px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: #4CAF50;
