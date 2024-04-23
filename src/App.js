@@ -151,7 +151,7 @@ function App() {
         <section id="request-confirmation">
           <h4>Request Confirmation</h4>
           <p>You can request to be a confirmed community event leader with the form down below.</p>
-          <p>Please fill out and submit and you will review your submission.</p>
+          <p>Please fill out and submit and we will review your submission.</p>
           <RequestConfirmation />
           <h4>Please sign in to your Community Calendar account to view the current calendar.</h4>
           <h4>If you do not have an account, you can create one at the top of the right page.</h4>
